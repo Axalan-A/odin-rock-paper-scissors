@@ -3,7 +3,7 @@ function getRandomInt(max){
 }
 
 function getComputerChoice(){
-    const choice = getRandomInt(2);
+    const choice = getRandomInt(3);
     let decision;
     switch(choice){
         case 0:
@@ -18,3 +18,5 @@ function getComputerChoice(){
     }
     return decision
 }
+
+console.log(getComputerChoice())
