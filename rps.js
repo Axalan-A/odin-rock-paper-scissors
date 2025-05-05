@@ -50,3 +50,20 @@ function playRound(humanChoice, computerChoice){
         humanScore++;
     }
 }
+
+for (let round = 0; round < 5; round++){
+    const humanSelection = getHumanChoice()
+    const computerSelection = getComputerChoice()
+    playRound(humanSelection, computerSelection)
+}
+
+if (humanScore == computerScore){
+    console.log("You tied!")
+    console.log("You: " + humanScore + " Computer: " + computerScore)
+} else if (humanScore > computerScore){
+    console.log("You won!")
+    console.log("You: " + humanScore + " Computer: " + computerScore)
+} else {
+    console.log("You lost!")
+    console.log("You: " + humanScore + " Computer: " + computerScore)
+}
