@@ -13,7 +13,7 @@ function getComputerChoice(){
             decision = "paper";
             break;
         case 2:
-            decision = "scisors"
+            decision = "scissors"
             break;
     }
     return decision
@@ -26,3 +26,4 @@ function getHumanChoice(){
 
 let humanScore = 0
 let computerScore = 0
+
