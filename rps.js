@@ -24,4 +24,5 @@ function getHumanChoice(){
     return playerChoice.toLowerCase()
 }
 
-console.log(getHumanChoice())
+let humanScore = 0
+let computerScore = 0
