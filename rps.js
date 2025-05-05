@@ -7,16 +7,21 @@ function getComputerChoice(){
     let decision;
     switch(choice){
         case 0:
-            decision = "Rock";
+            decision = "rock";
             break;
         case 1:
-            decision = "Paper";
+            decision = "paper";
             break;
         case 2:
-            decision = "Scisors"
+            decision = "scisors"
             break;
     }
     return decision
 }
 
-console.log(getComputerChoice())
+function getHumanChoice(){
+    let playerChoice = prompt("Will you throw rock, paper, or scissors?");
+    return playerChoice.toLowerCase()
+}
+
+console.log(getHumanChoice())
