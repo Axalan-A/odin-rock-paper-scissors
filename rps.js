@@ -27,56 +27,67 @@ function getHumanChoice(){
 let humanScore = 0
 let computerScore = 0
 
-function playRound(humanChoice, computerChoice){
+function playRound(humanChoice){
+    const computerChoice = getComputerChoice()
+    let outcome = document.createElement("p")
     if (humanChoice === computerChoice){
-        console.log("You tied! Try again!");
+        text = ("You tied! Try again!");
     } else if (humanChoice === "rock" && computerChoice === "paper"){
-        console.log("You lose! Paper beats rock.");
+        text = ("You lose! Paper beats rock.");
         computerScore++;
     } else if (humanChoice === "rock" && computerChoice === "scissors"){
-        console.log("You win! Rock beats scissors.");
+        text = ("You win! Rock beats scissors.");
         humanScore++;
     } else if (humanChoice === "paper" && computerChoice === "scissors"){
-        console.log("You lose! Scissors beats paper.");
+        text = ("You lose! Scissors beats paper.");
         computerScore++;
     } else if (humanChoice === "paper" && computerChoice === "rock"){
-        console.log("You win! Paper beats rock.");
+        text = ("You win! Paper beats rock.");
         humanScore++;
     } else if (humanChoice === "scissors" && computerChoice === "rock"){
-        console.log("You lose! Rock beats scissors.");
+        text = ("You lose! Rock beats scissors.");
         computerScore++;
     } else if (humanChoice === "scissors" && computerChoice === "paper"){
-        console.log("You win! scissors beats scissors.");
+        text = ("You win! scissors beats scissors.");
         humanScore++;
+    }
+    outcome.textContent = text
+    resultsSection.appendChild(outcome)
+    runningScore.textContent = ("You: " + humanScore + " Computer: " + computerScore)
+    if(humanScore == 5 || computerScore == 5){
+        checkWinner()
     }
 }
 
-if (humanScore == computerScore){
-    console.log("You tied!")
-    console.log("You: " + humanScore + " Computer: " + computerScore)
-} else if (humanScore > computerScore){
-    console.log("You won!")
-    console.log("You: " + humanScore + " Computer: " + computerScore)
-} else {
-    console.log("You lost!")
-    console.log("You: " + humanScore + " Computer: " + computerScore)
+function checkWinner(){
+    if (humanScore == computerScore){
+        winText.textContent = ("You tied the match!")
+    } else if (humanScore > computerScore){
+        winText.textContent = ("You won the match!")
+    } else {
+        winText.textContent = ("You lost the match!")
+    }
+    buttonRock.remove()
+    buttonPaper.remove()
+    buttonScissors.remove()
 }
+
 
 const buttonRock = document.getElementById("rock")
 const buttonPaper = document.getElementById("paper")
 const buttonScissors = document.getElementById("scissors")
+const resultsSection = document.getElementById("results")
+const runningScore = document.getElementById("score")
+const winText = document.getElementById("winner")
 
 buttonRock.addEventListener("click", function() {
-    const computerDecision = getComputerChoice()
-    playRound("rock", computerDecision)
+    playRound("rock")
 })
 
 buttonPaper.addEventListener("click", function() {
-    const computerDecision = getComputerChoice()
-    playRound("paper", computerDecision)
+    playRound("paper")
 })
 
 buttonScissors.addEventListener("click", function() {
-    const computerDecision = getComputerChoice()
-    playRound("scissors", computerDecision)
+    playRound("scissors")
 })
