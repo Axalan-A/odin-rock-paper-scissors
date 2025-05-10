@@ -51,12 +51,6 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-for (let round = 0; round < 5; round++){
-    const humanSelection = getHumanChoice()
-    const computerSelection = getComputerChoice()
-    playRound(humanSelection, computerSelection)
-}
-
 if (humanScore == computerScore){
     console.log("You tied!")
     console.log("You: " + humanScore + " Computer: " + computerScore)
@@ -67,3 +61,22 @@ if (humanScore == computerScore){
     console.log("You lost!")
     console.log("You: " + humanScore + " Computer: " + computerScore)
 }
+
+const buttonRock = document.getElementById("rock")
+const buttonPaper = document.getElementById("paper")
+const buttonScissors = document.getElementById("scissors")
+
+buttonRock.addEventListener("click", function() {
+    const computerDecision = getComputerChoice()
+    playRound("rock", computerDecision)
+})
+
+buttonPaper.addEventListener("click", function() {
+    const computerDecision = getComputerChoice()
+    playRound("paper", computerDecision)
+})
+
+buttonScissors.addEventListener("click", function() {
+    const computerDecision = getComputerChoice()
+    playRound("scissors", computerDecision)
+})
